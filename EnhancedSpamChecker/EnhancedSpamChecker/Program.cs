@@ -7,7 +7,7 @@ namespace EnhancedSpamChecker
         static void Main(string[] args)
         {
             string[] blackList = {
-            "buy", "viagra", "XXX", "free money",
+            "buy", "hate", "XXX", "free money",
                 "lifetime offer", "send money", "bank account",
                 "nigeria", "online pharmacy", "h8te", "meet girls" };
 
