@@ -21,6 +21,7 @@ namespace OOP_Concept_CoffeeMug
             Animal animal3 = new Animal(2, 2, "Monkey", "Bobo", false);
 
             animal1.ShowDetails();
+
             animal3.ShowDetails();
             animal1.SendToObedienceSchool();
             animal1.ShowDetails();
