@@ -1,0 +1,117 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    string myText = "This is C# string";
+
+    string[] myArray = { "A", "B", "C", "D", "E", "F", "G" };
+    int[] Array = { 1, 2, 3, 4, 5, 6, 7 };
+}
+
+<div class="text-center">
+    <h1 class="display-4">ARELLY'S WEBPAGE</h1>
+    <br/>
+    <h4>Using a link</h4>
+    <br/>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <br/>
+    <br/>
+    <h4>Using Razor Syntax</h4>
+    <p>@myText</p>
+</div>
+<br />
+<br/>
+<div class="text-center">
+    <h4>Listed the elements of the array</h4>
+    <br/>
+    <ul>
+        @foreach (string item in myArray)
+        {
+            <li>@item</li>
+        }
+    </ul>
+</div>
+
+<br />
+<br />
+
+<div class="text-center">
+    <h4>Listing the Array elements in a table format</h4>
+    <br/>
+
+    <table align="center">
+        @foreach (int column in Array)
+        {
+            <tr>
+                <td style="border:1px solid black" , width="20px">@column</td>
+                @foreach (string row in myArray)
+                {
+                    <td style="border:1px solid black" , width="20px">
+                        @if (column == 1)
+                        {@row}
+                        else
+                        {
+
+                        }
+                    </td>
+                }
+            </tr>
+        }
+    </table>
+</div>
+<br />
+<br />
+
+<div class="text-center">
+    <h4> Creating a random paragraph with random letters/characters</h4>
+   <br/>
+    <p>
+        
+        @{
+            byte[] data = new byte[500];
+            for (int i = 0; i < data.Length; i++)
+            {
+                Random rand = new Random();
+                rand.NextBytes(data);
+                Char c = (char)data[i];
+                @Html.DisplayFor(x => c)
+            }
+        }
+    </p>
+</div>
+<br />
+<br />
+
+
+<div class="text-center">
+    <h4> Using HTML Helper Tags</h4>
+    <br />
+    @Html.Label("TextBox1", "Label Text")
+    @Html.TextBox("TextBox")
+</div>
+
+<br />
+<br />
+
+<div class="text-center">
+    <h4> Using 2nd Version of HTML Helper Tags</h4>
+    <br />
+    @{
+        String Name = "Name";
+        String Name1 = "Arelly";
+    }
+
+    @Html.LabelFor(x=> Name)
+    @Html.TextBoxFor(x => Name1)
+</div>
+
+<br />
+<br />
+
+
+<div class="text-center">
+    <h4>Tag Helper</h4>
+    <br />
+    <form asp-controller="Home" asp-action="Privacy">
+        <label asp-for="@Name">Tag Helper Version</label>
+        <input asp-for="@Name" />
+    </form>
+   </div>
